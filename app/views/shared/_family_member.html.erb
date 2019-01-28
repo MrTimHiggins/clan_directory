@@ -1,8 +1,9 @@
 <div class="card" style="width: 20rem;">
   <div class="card-body">
     <h5 class="card-title"><%= family_member.first_name %> <%= family_member.last_name %></h5>
-    <h6 class="card-subtitle mb-2 text-muted">email address</h6>
-    <p class="card-text"><%= family_member.age %></p>
+    <div class="card-subtitle mb-2"><%= "email@address.com" %></div>
+    <div class="card-subtitle mb-2"><%= "123-123-1234" %></div>
+    <div class="card-subtitle mb-2">Date of Birth: <%= "11/19/1292" %> (age: <small class="card-text"><%= family_member.age %></small>)</div>
     <a href="#" class="card-link">Card link</a>
     <a href="#" class="card-link">Another link</a>
   </div>
