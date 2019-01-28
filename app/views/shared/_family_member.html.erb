@@ -4,8 +4,7 @@
     <div class="card-subtitle mb-2"><%= "email@address.com" %></div>
     <div class="card-subtitle mb-2"><%= "123-123-1234" %></div>
     <div class="card-subtitle mb-2">Date of Birth: <%= "11/19/1292" %> (age: <small class="card-text"><%= family_member.age %></small>)</div>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <a href="<%= edit_family_member_path(family_member) %>" class="card-link">Edit</a>
   </div>
 </div>
 
