@@ -1,5 +1,12 @@
 class WelcomeController < ApplicationController
   def home
-    @family_members = FamilyMember.all
+    @q = params[:search]
+
+    if @q
+      @family_members = FamilyMember.where("concat_ws(' ', first_name, last_name) ILIKE ?", "%#{@q.squish}%")
+    else
+      @family_members = FamilyMember.all
+    end
   end
+
 end

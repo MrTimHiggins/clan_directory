@@ -11,9 +11,25 @@ if Rails.env == "development"
   Clan.create(name: "Higgins Clan")
   Family.create(name: "Tracy Family", clan_id: Clan.first.id)
 
-
   9.times do |n|
     FamilyMember.create(first_name: "firstname#{n}", last_name: "lastname#{n}", age: "1#{n}", family_id: Family.first.id)
   end
+end
 
+if Rails.env == "production"
+  fm = FamilyMember.create(
+    first_name: "",
+    last_name: "",
+    date_of_birth: DateTime.new(2001,2,3)
+  )
+
+  ContactInfo.create(
+    email: "",
+    phone_number: "",
+    street1: "",
+    street2: "",
+    city: "",
+    state: "",
+    zipcode: "",
+  )
 end
