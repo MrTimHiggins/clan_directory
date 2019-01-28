@@ -12,34 +12,38 @@
         <input type="text" class="form-control" id="last_name" placeholder="Last Name" value="<%= @family_member.last_name %>">
       </div>
       <div class="form-group col-md-6">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" class="form-control" id="date_of_birth" value="<%= @family_member.date_of_birth&.strftime("%Y-%m-%d") %>">
+      </div>
+      <div class="form-group col-md-6">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="your@email.com">
+        <input type="email" class="form-control" id="email" placeholder="your@email.com" value="<%= @contact_info&.email %>">
       </div>
       <div class="form-group col-md-6">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" id="phone" placeholder="123-456-7890">
+        <input type="text" class="form-control" id="phone" placeholder="123-456-7890" value="<%= @contact_info&.phone_number %>">
       </div>
     </div>
     <div class="form-group">
       <label for="address1">Address</label>
-      <input type="text" class="form-control" id="address1" placeholder="1234 Main St">
+      <input type="text" class="form-control" id="address1" placeholder="1234 Main St" value="<%= @contact_info&.street1 %>">
     </div>
     <div class="form-group">
       <label for="address2">Address 2</label>
-      <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor">
+      <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor" value="<%= @contact_info&.street2 %>">
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="city">City</label>
-        <input type="text" class="form-control" id="city" placeholder="City">
+        <input type="text" class="form-control" id="city" placeholder="City" value="<%= @contact_info&.city %>">
       </div>
       <div class="form-group col-md-4">
         <label for="state">State</label>
-        <input type="text" class="form-control" id="state" placeholder="State">
+        <input type="text" class="form-control" id="state" placeholder="State" value="<%= @contact_info&.state %>">
       </div>
       <div class="form-group col-md-2">
         <label for="zip">Zip</label>
-        <input type="text" class="form-control" id="zip" placeholder="12345">
+        <input type="text" class="form-control" id="zip" placeholder="12345" value="<%= @contact_info&.zipcode %>">
       </div>
     </div>
 

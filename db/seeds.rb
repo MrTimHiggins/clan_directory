@@ -1,35 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
 
+csv_text = File.read(Rails.root.join('tmp/', 'family_addresses.csv'))
+csv = CSV.parse(csv_text, :headers => true)
 
-if Rails.env == "development"
-  Clan.create(name: "Higgins Clan")
-  Family.create(name: "Tracy Family", clan_id: Clan.first.id)
+csv.each do |row|
+  row = row.to_hash
 
-  9.times do |n|
-    FamilyMember.create(first_name: "firstname#{n}", last_name: "lastname#{n}", age: "1#{n}", family_id: Family.first.id)
+  ActiveRecord::Base.transaction do
+    fm = FamilyMember.new
+    fm.first_name = row['first_name']
+    fm.last_name = row['last_name']
+    fm.date_of_birth = Date.strptime(row['date_of_birth'], "%m/%d/%Y") unless row['date_of_birth'].nil?
+    fm.save
+
+    ci = ContactInfo.new
+    ci.email = row['email']
+    ci.phone_number = row['phone_number']
+    ci.street1 = row['street1']
+    ci.street2 = row['street2']
+    ci.city = row['city']
+    ci.state = row['state']
+    ci.zipcode = row['zipcode']
+    ci.family_member_id = fm.id
+    ci.save
   end
-end
 
-if Rails.env == "production"
-  fm = FamilyMember.create(
-    first_name: "",
-    last_name: "",
-    date_of_birth: DateTime.new(2001,2,3)
-  )
-
-  ContactInfo.create(
-    email: "",
-    phone_number: "",
-    street1: "",
-    street2: "",
-    city: "",
-    state: "",
-    zipcode: "",
-  )
 end
