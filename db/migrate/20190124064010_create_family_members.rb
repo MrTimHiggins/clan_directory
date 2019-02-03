@@ -1,11 +1,11 @@
 class CreateFamilyMembers < ActiveRecord::Migration[5.1]
   def change
     create_table :family_members do |t|
-      t.text :first_name
-      t.text :middle_name
-      t.text :last_name
+      t.citext :first_name
+      t.citext :middle_name
+      t.citext :last_name
       t.integer :age
-      t.text :gender
+      t.citext :gender
       t.references :family, foreign_key: true
 
       t.timestamps
