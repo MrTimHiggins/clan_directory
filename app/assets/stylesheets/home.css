@@ -43,3 +43,8 @@
       column-width: 10%;
   }
 }
+
+.family-member-email {
+  color: #007bff;
+  text-decoration: underline
+}

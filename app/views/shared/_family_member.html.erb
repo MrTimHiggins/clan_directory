@@ -2,9 +2,10 @@
   <div class="card-body">
     <h5 class="card-title"><%= family_member.first_name %> <%= family_member.last_name %></h5>
 
-    <div class="card-subtitle mb-2"><%= family_member.contact_info&.email %></div>
+    <div class="card-subtitle mb-2 family-member-email"><%= family_member.contact_info&.email %></div>
     <div class="card-subtitle mb-2"><small>Phone Number: </small><%= family_member.contact_info&.phone_number %></div>
     <div class="card-subtitle mb-2"><small>Date of Birth: </small><%= family_member.date_of_birth&.strftime("%m/%d/%Y") %> (age: <small class="card-text"><%= family_member.age %></small>)</div>
+    <div class="card-subtitle mb-2"><small>Address:</small></div>
     <div class="card-subtitle mb-2"><%= family_member.contact_info&.street1 %></div>
     <div class="card-subtitle mb-2"><%= family_member.contact_info&.street2 %></div>
     <div class="card-subtitle mb-2"><%= family_member.contact_info&.city %>, <%= family_member.contact_info&.state %>, <%= family_member.contact_info&.zipcode %></div>
