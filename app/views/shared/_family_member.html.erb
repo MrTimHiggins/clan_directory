@@ -1,16 +1,22 @@
+<%
+  fm = family_member
+  ci = family_member.contact_info
+%>
+
 <div class="card" style="width: 20rem;">
   <div class="card-body">
-    <h5 class="card-title"><%= family_member.first_name %> <%= family_member.last_name %></h5>
+    <h5 class="card-title"><%= fm.first_name %> <%= fm.last_name %></h5>
 
-    <div class="card-subtitle mb-2 family-member-email"><%= family_member.contact_info&.email %></div>
-    <div class="card-subtitle mb-2"><small>Phone Number: </small><%= family_member.contact_info&.phone_number %></div>
-    <div class="card-subtitle mb-2"><small>Date of Birth: </small><%= family_member.date_of_birth&.strftime("%m/%d/%Y") %> (age: <small class="card-text"><%= family_member.age %></small>)</div>
-    <div class="card-subtitle mb-2"><small>Address:</small></div>
-    <div class="card-subtitle mb-2"><%= family_member.contact_info&.street1 %></div>
-    <div class="card-subtitle mb-2"><%= family_member.contact_info&.street2 %></div>
-    <div class="card-subtitle mb-2"><%= family_member.contact_info&.city %>, <%= family_member.contact_info&.state %>, <%= family_member.contact_info&.zipcode %></div>
+    <% if !ci.email.blank? %><div class="card-subtitle mb-2 family-member-email"><%= ci.email %></div><% end %>
+    <% if !ci.phone_number.blank? %><div class="card-subtitle mb-2"><small>Phone Number: </small><%= ci.phone_number %></div><% end %>
+    <% if fm.date_of_birth %><div class="card-subtitle mb-2"><small>Date of Birth: </small><%= fm.date_of_birth&.strftime("%m/%d/%Y") %> (age: <small class="card-text"><%= fm.age %></small>)</div><% end %>
+    <% if !ci.street1.blank? || !ci.street2.blank? || !ci.city.blank? || !ci.state.blank? || !ci.zipcode.blank? %><div class="card-subtitle mb-2"><small>Address:</small></div>
+      <div class="card-subtitle mb-2"><%= ci&.street1 %></div>
+      <div class="card-subtitle mb-2"><%= ci&.street2 %></div>
+      <div class="card-subtitle mb-2"><%= ci&.city %>, <%= ci&.state %>, <%= ci&.zipcode %></div>
+    <% end %>
 
-    <a href="<%= edit_family_member_path(family_member) %>" class="card-link">Edit</a>
+    <a href="<%= edit_family_member_path(fm) %>" class="card-link">Edit</a>
   </div>
 </div>
 
