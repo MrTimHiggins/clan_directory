@@ -30,8 +30,10 @@
       </div>
     </nav>
 
-    <div class="notice"><%= notice %></div>
-    <div class="alert"><%= alert %></div>
+    <!-- flash message(s) -->
+    <% [%w(success success), %w(notice info), %w(alert warning), %w(error danger)].each do |flash_type_and_style| %>
+      <%= render partial: 'layouts/flash_message', object: (msg=flash[flash_type_and_style[0].to_sym]), locals: { alert_style: flash_type_and_style[1] } %>
+    <% end %>
 
     <%= yield %>
   </body>
