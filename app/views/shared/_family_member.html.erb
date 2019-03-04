@@ -16,7 +16,9 @@
       <div class="card-subtitle mb-2"><%= ci&.city %>, <%= ci&.state %>, <%= ci&.zipcode %></div>
     <% end %>
 
-    <a href="<%= edit_family_member_path(fm) %>" class="card-link">Edit</a>
+    <% if current_user.admin? %>
+      <a href="<%= edit_family_member_path(fm) %>" class="card-link">Edit</a>
+    <% end %>
   </div>
 </div>
 
