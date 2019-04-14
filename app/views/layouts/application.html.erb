@@ -15,31 +15,30 @@
       </button>
 
       <a class="navbar-brand" href="<%= root_path %>">Home</a>
-      <% if user_signed_in? %>
-        <form class="form-inline my-2 my-lg-0 offset-4">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      <% end %>
 
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <!--
           <li class="nav-item active">
-            <a class="nav-link" href="<%= root_path %>">Home</a>
+            <a class="nav-link" href="<%= root_path %>">Calendar</a>
           </li>
-        -->
         </ul>
 
-      <div class="navbar-text pull-center">
         <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link ml-4' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link mr-2' %>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+          <form class="form-inline my-2 my-lg-0 offset-4" style="margin: auto;">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
         <% end %>
-      </div>
+
+        <div class="navbar-text pull-center">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link ml-4' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link mr-2' %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+          <% end %>
+        </div>
       </div>
     </nav>
 
