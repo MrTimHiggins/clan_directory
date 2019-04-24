@@ -48,3 +48,7 @@
   color: #007bff;
   text-decoration: underline
 }
+
+.simple-calendar tbody tr {
+  height: 8rem;
+}

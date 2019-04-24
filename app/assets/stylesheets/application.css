@@ -15,6 +15,7 @@
  *= require bootstrap.min
  *= require bootstrap-grid.min
  *= require bootstrap-reboot.min
+ *= require simple_calendar
  */
 
  /* User sign in and sign forms. */
