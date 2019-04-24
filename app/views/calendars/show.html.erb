@@ -1,3 +1,11 @@
-<%= month_calendar do |date| %>
-  <%= date %>
+<h1 class="text-center mt-3">Family Calendar</h1>
+
+<%= month_calendar events: @family_members do |date, family_members| %>
+  <%= date.strftime("%d") %>
+
+  <% family_members.each do |member| %>
+    <div style="color: #007bff;">
+      <%= member.name %> Birthday
+    </div>
+  <% end %>
 <% end %>

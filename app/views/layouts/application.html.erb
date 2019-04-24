@@ -47,6 +47,8 @@
       <%= render partial: 'layouts/flash_message', object: (msg=flash[flash_type_and_style[0].to_sym]), locals: { alert_style: flash_type_and_style[1] } %>
     <% end %>
 
-    <%= yield %>
+    <main role="main" class="container">
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -11,4 +11,13 @@ class FamilyMember < ApplicationRecord
     end
   end
 
+  def name
+    first_name + ' ' + last_name
+  end
+
+  # Method used for simple_calendar gem
+  def start_time
+    self.date_of_birth.strftime("#{Date.today.year}-%m-%d") if date_of_birth
+  end
+
 end
