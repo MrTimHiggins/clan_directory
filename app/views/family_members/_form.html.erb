@@ -3,11 +3,11 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="first_name">First Name</label>
-        <input type="text" class="form-control" id="first_name" name="family_member[first_name]" placeholder="First Name" value="<%= family_member.first_name %>">
+        <input type="text" class="form-control" id="first_name" name="family_member[first_name]" placeholder="First Name" value="<%= family_member.first_name %>" required>
       </div>
       <div class="form-group col-md-6">
         <label for="last_name">Last Name</label>
-        <input type="text" class="form-control" id="last_name" name="family_member[last_name]" placeholder="Last Name" value="<%= family_member.last_name %>">
+        <input type="text" class="form-control" id="last_name" name="family_member[last_name]" placeholder="Last Name" value="<%= family_member.last_name %>" required>
       </div>
       <div class="form-group col-md-6">
         <label for="date_of_birth">Date of Birth</label>
@@ -45,7 +45,11 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary" data-disable-with="Updating">Update</button>
+    <% if family_member.new_record? %>
+      <button type="submit" class="btn btn-primary" data-disable-with="Creating">Create</button>
+    <% else %>
+      <button type="submit" class="btn btn-primary" data-disable-with="Updating">Update</button>
+    <% end %>
 
   <% end %>
 </main>

@@ -1,6 +1,9 @@
 class FamilyMember < ApplicationRecord
   belongs_to :family, optional: true
-  has_one :contact_info
+  has_one :contact_info, dependent: :destroy
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   def age
     if date_of_birth
