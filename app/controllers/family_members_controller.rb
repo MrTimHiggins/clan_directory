@@ -4,6 +4,11 @@ class FamilyMembersController < ApplicationController
     @contact_info = @family_member.contact_info
   end
 
+  def create
+    FamilyMember.create(family_member_params)
+    ContactInfo.create(contact_info_params)
+  end
+
   def update
     @family_member = FamilyMember.find_by_id(params[:id])
     @contact_info = @family_member.contact_info
