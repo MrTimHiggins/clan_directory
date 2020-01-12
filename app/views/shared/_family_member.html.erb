@@ -6,7 +6,6 @@
 <div class="card" style="width: 20rem;">
   <div class="card-body">
     <h5 class="card-title"><%= fm.first_name %> <%= fm.last_name %></h5>
-
     <% if !ci&.email.blank? %><div class="card-subtitle mb-2 family-member-email"><%= ci.email %></div><% end %>
     <% if !ci&.phone_number.blank? %><div class="card-subtitle mb-2"><small>Phone Number: </small><%= ci.phone_number %></div><% end %>
     <% if fm.date_of_birth %><div class="card-subtitle mb-2"><small>Date of Birth: </small><%= fm.date_of_birth&.strftime("%m/%d/%Y") %> (age: <small class="card-text"><%= fm.age %></small>)</div><% end %>
@@ -15,6 +14,7 @@
       <div class="card-subtitle mb-2"><%= ci&.street2 %></div>
       <div class="card-subtitle mb-2"><%= ci&.city %>, <%= ci&.state %>, <%= ci&.zipcode %></div>
     <% end %>
+    <div class="card-subtitle mb-2"><small>Last Updated: <%= fm.updated_at.strftime('%-m/%d/%y ') %></small></div>
 
     <% if current_user.admin? %>
       <a href="<%= edit_family_member_path(fm) %>" class="card-link btn btn-outline-success">Edit</a>
