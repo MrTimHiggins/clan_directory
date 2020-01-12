@@ -46,10 +46,11 @@
     </div>
 
     <% if family_member.new_record? %>
-      <button type="submit" class="btn btn-primary" data-disable-with="Creating">Create</button>
+      <button type="submit" class="btn btn-primary float-left" data-disable-with="Creating">Create</button>
     <% else %>
-      <button type="submit" class="btn btn-primary" data-disable-with="Updating">Update</button>
+      <button type="submit" class="btn btn-primary float-left" data-disable-with="Updating">Update</button>
     <% end %>
-
   <% end %>
+
+  <%= link_to "Back", root_path, class: "btn btn-primary float-right" %>
 </main>
