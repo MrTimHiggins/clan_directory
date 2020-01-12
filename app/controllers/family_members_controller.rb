@@ -26,6 +26,18 @@ class FamilyMembersController < ApplicationController
     end
   end
 
+  def destroy
+    @family_member = FamilyMember.find_by_id(params[:id])
+
+    if @family_member.destroy
+      flash[:notice] = "Family member successfully deleted."
+      redirect_to root_path
+    else
+      flash[:errors] = @family_member.errors.full_messages.join('<br>')
+      redirect_to root_path
+    end
+  end
+
   private
 
   def family_member_params
