@@ -17,12 +17,12 @@ class FamilyMembersController < ApplicationController
     @family_member = FamilyMember.find_by_id(params[:id])
     @contact_info = @family_member.contact_info || ContactInfo.new(family_member_id: @family_member.id)
 
-    if @family_member.update_attributes(family_member_params) && @contact_info.update_attributes(contact_info_params)
+    if @family_member.update(family_member_params) || @contact_info.update(contact_info_params)
       flash[:notice] = "Family member successfully updated."
-      redirect_to edit_family_member_path
+      redirect_to root_path
     else
       flash[:errors] = @family_member.errors.full_messages.join('<br>')
-      redirect_to edit_family_member_path
+      redirect_to root_path
     end
   end
 

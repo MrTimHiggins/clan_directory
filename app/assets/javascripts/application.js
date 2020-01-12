@@ -15,3 +15,19 @@
 //= require_tree .
 //= require jquery.min
 //= require bootstrap.bundle.min
+
+
+$(document).ready(function() {
+  setTimeout(function() {
+    $('.alert').slideUp();
+  }, 2000);
+})
+
+
+
+// Keep-alive for app so it doesn't go to sleep (default sleep is after 1 hour)
+var http = require("http");
+
+setInterval(function() {
+  http.get("https://higgins-directory.herokuapp.com/");
+}, 1200000); // every 20 minutes (1200000)
