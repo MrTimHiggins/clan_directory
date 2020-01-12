@@ -16,14 +16,10 @@
 //= require jquery.min
 //= require bootstrap.bundle.min
 
-
-$(document).ready(function() {
-  setTimeout(function() {
-    $('.alert').slideUp();
-  }, 2000);
-})
-
-
+// Remove bootstrap flash messages
+setTimeout(function() {
+  $('.alert').slideUp();
+}, 2000);
 
 // Keep-alive for app so it doesn't go to sleep (default sleep is after 1 hour)
 var http = require("http");

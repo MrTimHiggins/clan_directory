@@ -8,8 +8,13 @@ class FamilyMembersController < ApplicationController
     fm = FamilyMember.new(family_member_params)
     ci = ContactInfo.new(contact_info_params.merge(family_member_id: fm.id))
 
-    if fm.save and ci.save
-      redirect_to family_member_edit_path(fm)
+    if fm.save || ci.save
+      flash[:notice] = "Family member successfully created."
+      redirect_to root_path
+    else
+      error_messages = @fm.errors.full_messages + @ci.errors.full_messages
+      flash[:errors] = error_messages.join('<br>')
+      redirect_to root_path
     end
   end
 
