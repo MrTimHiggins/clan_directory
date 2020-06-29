@@ -1,0 +1,54 @@
+.card {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  margin: auto;
+}
+
+.family-member-cards-container {
+  -moz-column-count: 3;
+  -moz-column-gap: 3%;
+  -moz-column-width: 30%;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 3%;
+  -webkit-column-width: 30%;
+  column-count: 3;
+  column-gap: 3%;
+  column-width: 30%;
+}
+
+@media screen and (max-width: 990px) {
+  .family-member-cards-container {
+      -moz-column-count: 2;
+      -moz-column-gap: 2%;
+      -moz-column-width: 20%;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 2%;
+      -webkit-column-width: 20%;
+      column-count: 2;
+      column-gap: 2%;
+      column-width: 20%;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .family-member-cards-container {
+      -moz-column-count: 1;
+      -moz-column-gap: 1%;
+      -moz-column-width: 10%;
+      -webkit-column-count: 1;
+      -webkit-column-gap: 1%;
+      -webkit-column-width: 10%;
+      column-count: 1;
+      column-gap: 1%;
+      column-width: 10%;
+  }
+}
+
+.family-member-email {
+  color: #007bff;
+  text-decoration: underline
+}
+
+.simple-calendar tbody tr {
+  height: 8rem;
+}
