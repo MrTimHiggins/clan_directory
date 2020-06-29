@@ -17,14 +17,14 @@
 //= require bootstrap.bundle.min
 
 // Remove bootstrap flash messages
-setTimeout(function() {
+setTimeout(function () {
   $('.alert').slideUp();
 }, 2000);
 
 // Keep-alive for app so it doesn't go to sleep (default sleep is after 1 hour)
-setInterval(function() {
+setInterval(function () {
   $.ajax({
     type: 'GET',
-    url: "http://clanhiggins.com"
+    url: "http://www.clanhiggins.com"
   });
 }, 1200000); // every 20 minutes (1200000)
