@@ -22,7 +22,13 @@ class FamilyMembersController < ApplicationController
     @family_member = FamilyMember.find_by_id(params[:id])
     @contact_info = @family_member.contact_info || ContactInfo.new(family_member_id: @family_member.id)
 
-    if @family_member.update(family_member_params) || @contact_info.update(contact_info_params)
+    @family_member.assign_attributes(family_member_params)
+    @contact_info.assign_attributes(contact_info_params)
+
+    if @family_member.changed? || @contact_info.changed?
+      @family_member.save
+      @contact_info.save
+
       flash[:notice] = "Family member successfully updated."
       redirect_to root_path
     else
